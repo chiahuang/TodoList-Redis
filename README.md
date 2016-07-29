@@ -20,7 +20,7 @@ Quick start:
 6. 
 6. Run the test cases with `swift test` or directly from XCode
 
-##Deploying to Bluemix:
+##Setting up Redis service in Bluemix
 
 1.Get an account for Bluemix
 
@@ -30,7 +30,10 @@ Quick start:
 
 4.Upon creation, you should see your unbound service on the dashboard page
 
-5.Dowload and install the Cloud Foundry tools:
+
+##Deploying to Bluemix:
+
+1.Dowload and install the Cloud Foundry tools:
 
 ```
 cf login
@@ -42,9 +45,9 @@ bluemix login -u username -o org_name -s space_name
 Be sure to change the directory to the todolist-redis directory where the manifest.yml file is located.
 ```
 
-6.Run ```cf push```
+2.Run ```cf push```
 
-7.It should take several minutes, roughly 4-6 minutes. If it works correctly, it should state
+3.It should take several minutes, roughly 4-6 minutes. If it works correctly, it should state
 
 ```
 2 of 2 instances running
