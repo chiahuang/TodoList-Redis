@@ -22,7 +22,9 @@ Quick start:
 
 ##Setting up Redis service in Bluemix
 
-1.Get an account for Bluemix
+1.Get an account for Bluemix and go to Category called Compute
+
+2.Open the Bluemix catalog by clicking the blue hexagon '+' icon
 
 2.Select the Redis by Compose Service
 
