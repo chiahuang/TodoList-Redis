@@ -47,7 +47,7 @@ Be sure to change the directory to the todolist-redis directory where the manife
 
 2.Run ```cf push```
 
-  ####It should take several minutes, roughly 4-6 minutes. If it works correctly, it should state
+    ####It should take several minutes, roughly 4-6 minutes. If it works correctly, it should state
 
 ```
 2 of 2 instances running
