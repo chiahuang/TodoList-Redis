@@ -25,6 +25,13 @@ Implements the [TodoListAPI](https://github.com/IBM-Swift/todolist-api) for Todo
 
 1. Get an account for [Compose](https://www.compose.com/redis/)
 
+2. Navigate to deployment section on the side bar. Select Redis and set your deployment name, location, and disable SSL access
+
+3. Create Deployment and you should see a field for your connection info.
+
+Now, you can access your Redis Database with the given host and port or connect it to bluemix
+
+
 ##Setting up Redis service in Bluemix
 
 1. Get an account for [Bluemix](https://new-console.ng.bluemix.net/?direct=classic) and go to Category called Compute
