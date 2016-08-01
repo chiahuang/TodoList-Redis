@@ -29,6 +29,8 @@ Implements the [TodoListAPI](https://github.com/IBM-Swift/todolist-api) for Todo
 
 1. Get an account for Bluemix and go to Category called Compute
 
+    ![Redis by Compose](Images/BlueHexagon+.png)
+
 2. Open the Bluemix catalog by clicking the blue hexagon '+' icon
 
 3. Click "View all" so it will show all categories
