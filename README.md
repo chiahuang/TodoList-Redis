@@ -61,7 +61,7 @@ Implements the [TodoListAPI](https://github.com/IBM-Swift/todolist-api) for Todo
 
     ![Redis by Compose](Images/LookForRedisServiceInExperimental.png)
 
-6. Create a redis service and connect the redis service to the Swift application that was created "todolist-redis"
+6. Create a redis service and connect the redis service to the Swift application, "todolist-redis"
 
     ![Redis by Compose](Images/CreateRedisExperimentalService.png)
 
