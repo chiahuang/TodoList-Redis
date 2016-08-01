@@ -35,7 +35,7 @@ Implements the [TodoListAPI](https://github.com/IBM-Swift/todolist-api) for Todo
 
     ![Redis by Compose](Images/BlueHexagon+.png)
 
-3. Click "View all" so it will show all categories
+3. Click "View all" on the top left corner, so it will show all categories
 
     ![Redis by Compose](Images/ClickViewAll.png)
 
