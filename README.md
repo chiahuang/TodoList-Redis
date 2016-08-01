@@ -21,7 +21,7 @@ Implements the [TodoListAPI](https://github.com/IBM-Swift/todolist-api) for Todo
 
 6. Run the test cases with `swift test` or directly from XCode
 
-##Setting up MongoDB by Compose
+##Setting up Redis by Compose
 
 1. Get an account for [Compose](https://www.compose.com/redis/)
 
