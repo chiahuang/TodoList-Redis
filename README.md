@@ -29,18 +29,27 @@ Implements the [TodoListAPI](https://github.com/IBM-Swift/todolist-api) for Todo
 
 1. Get an account for Bluemix and go to Category called Compute
 
-    ![Redis by Compose](Images/BlueHexagon+.png)
+    ![Redis by Compose](Images/ClickCompute.png)
 
 2. Open the Bluemix catalog by clicking the blue hexagon '+' icon
 
+    ![Redis by Compose](Images/BlueHexagon+.png)
+
 3. Click "View all" so it will show all categories
+
+    ![Redis by Compose](Images/ClickViewAll.png)
 
 4. Select the Redis by Compose Service
 
+    ![Redis by Compose](Images/LookForRedis.png)
+
 5. Set the Service name as TodoList-Redis then initialize the Host, Port, Username, and Password to the values instantiated
+
+    ![Redis by Compose](Images/SetupRedisSetting.png)
 
 6. Upon creation, you should see your unbound service on the dashboard page
 
+    ![Redis by Compose](Images/Todolist-redis.png)
 
 ##Deploying to Bluemix:
 
