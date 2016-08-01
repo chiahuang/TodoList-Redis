@@ -21,20 +21,27 @@ Implements the [TodoListAPI](https://github.com/IBM-Swift/todolist-api) for Todo
 
 6. Run the test cases with `swift test` or directly from XCode
 
-##Setting up Redis by Compose
+##Setting up Swift application in Bluemix
 
-1. Get an account for [Compose](https://www.compose.com/redis/)
+1. Get an account for [Bluemix](https://new-console.ng.bluemix.net/?direct=classic) and go to Category called Compute
 
-2. Navigate to deployment section on the side bar. Select Redis and set your deployment name, location, and disable SSL access
+    ![Redis by Compose](Images/ClickCompute.png)
 
-3. Create Deployment and you should see a field for your connection info.
+2. Then click the blue hexagon '+' icon on the top right corner
 
-Now, you can access your Redis Database with the given host and port or connect it to bluemix
+    ![Redis by Compose](Images/BlueHexagon+.png)
 
+3. Look under the category of "Runtime" and click "Swift application"
+
+    ![Redis by Compose](Images/LookForSwiftApp.png)
+
+4. Enter the app name as: todolist-redis and then create the application
+
+    ![Redis by Compose](Images/CreateSwiftApp.png)
 
 ##Setting up Redis service in Bluemix
 
-1. Get an account for [Bluemix](https://new-console.ng.bluemix.net/?direct=classic) and go to Category called Compute
+1. Go to Bluemix homepage and click on the Category called Compute
 
     ![Redis by Compose](Images/ClickCompute.png)
 
@@ -46,15 +53,19 @@ Now, you can access your Redis Database with the given host and port or connect 
 
     ![Redis by Compose](Images/ClickViewAll.png)
 
-4. Select the Redis by Compose Service
+4. Scroll all the way down to look for [Bluemix Experimental Services](https://new-console.ng.bluemix.net/catalog/labs/)
 
-    ![Redis by Compose](Images/LookForRedis.png)
+    ![Redis by Compose](Images/BluemixExperimentalServices.png)
 
-5. Set the Service name as TodoList-Redis then initialize the Host, Port, Username, and Password to the values instantiated
+5. Then search for "redis"
 
-    ![Redis by Compose](Images/SetupRedisSetting.png)
+    ![Redis by Compose](Images/LookForRedisServiceInExperimental.png)
 
-6. Upon creation, you should see your unbound service on the dashboard page
+6. Create a redis service and connect the redis service to the Swift application that was created "todolist-redis"
+
+    ![Redis by Compose](Images/CreateRedisExperimentalService.png)
+
+7. Upon creation, you should see your unbound service on the dashboard page
 
     ![Redis by Compose](Images/Todolist-redis.png)
 
