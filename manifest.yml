@@ -1,12 +1,12 @@
 declared-services:
-  TodoList-Redis:
-    name: TodoList-Redis
-    label: user-provided
+  todolist-redis:
+    name: todolist-redis
+    label: redis-2.6
 applications:
 - name: todolist-redis
   memory: 256M
   instances: 2
   random-route: true
   services:
-  - TodoList-Redis
+  - todolist-redis
   buildpack: https://github.com/IBM-Swift/swift-buildpack.git#develop
