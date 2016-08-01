@@ -27,11 +27,11 @@ Implements the [TodoListAPI](https://github.com/IBM-Swift/todolist-api) for Todo
 
 ##Setting up Redis service in Bluemix
 
-1. Get an account for Bluemix and go to Category called Compute
+1. Get an account for [Bluemix](https://new-console.ng.bluemix.net/?direct=classic) and go to Category called Compute
 
     ![Redis by Compose](Images/ClickCompute.png)
 
-2. Open the Bluemix catalog by clicking the blue hexagon '+' icon
+2. Then click the blue hexagon '+' icon on the top right corner
 
     ![Redis by Compose](Images/BlueHexagon+.png)
 
