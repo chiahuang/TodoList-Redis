@@ -4,8 +4,8 @@
 
 Implements the [TodoListAPI](https://github.com/IBM-Swift/todolist-api) for TodoList. Uses the [Kitura-Redis](https://github.com/IBM-Swift/todolist-api) library for interfacing with Redis.
 
+##Quick start:
 
-Quick start:
 1. Download the [Swift DEVELOPMENT 06-20 snapshot](https://swift.org/download/#snapshots)
 
 2. Download redis
