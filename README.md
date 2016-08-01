@@ -17,8 +17,12 @@ Quick start:
   `git clone https://github.com/IBM-Swift/todolist-tests Tests`
 
 5. Compile the library with `swift build` or create an XCode project with `swift package generate-xcodeproj`
-6. 
+
 6. Run the test cases with `swift test` or directly from XCode
+
+##Setting up MongoDB by Compose
+
+1.Get an account for [Compose](https://www.compose.com/redis/)
 
 ##Setting up Redis service in Bluemix
 
@@ -26,11 +30,13 @@ Quick start:
 
 2.Open the Bluemix catalog by clicking the blue hexagon '+' icon
 
-2.Select the Redis by Compose Service
+3.Click "View all" so it will show all categories
 
-3.Set the Service name as TodoList-Redis then initialize the Host, Port, Username, and Password to the values instantiated
+4.Select the Redis by Compose Service
 
-4.Upon creation, you should see your unbound service on the dashboard page
+5.Set the Service name as TodoList-Redis then initialize the Host, Port, Username, and Password to the values instantiated
+
+6.Upon creation, you should see your unbound service on the dashboard page
 
 
 ##Deploying to Bluemix:
