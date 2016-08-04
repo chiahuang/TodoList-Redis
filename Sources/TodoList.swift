@@ -301,13 +301,19 @@ public class TodoList: TodoListAPI {
 
             self.redis.incr("todo:id") {
                 incrResult, incrError in
-
+                
                 guard incrError == nil else {
                     Log.error("Failed to increment the key")
                     oncompletion(nil, incrError)
                     return
                 }
-
+                
+                guard let incrResult = incrResult else {
+                    Log.error("Failed to parse")
+                    oncompletion(nil, TodoCollectionError.ParseError)
+                    return
+                }
+                
                 self.redis.hmset(String(incrResult), fieldValuePairs: (TITLE, title),
                                  (ORDER, String(order)), (COMPLETED, String(completed)),
                                  (USERID, userID)) {
@@ -318,7 +324,7 @@ public class TodoList: TodoListAPI {
                                         oncompletion(nil, error)
                                         return
                                     }
-
+                                    
                                     self.redis.zadd(userID, tuples: (order, String(incrResult))) {
                                         result2, error2 in
 
@@ -327,7 +333,7 @@ public class TodoList: TodoListAPI {
                                             oncompletion(nil, error2)
                                             return
                                         }
-
+                                        
                                         let newItem = TodoItem(documentID: String(incrResult),
                                                                userID: userID, order: order,
                                                                title: title, completed: completed)
