@@ -100,7 +100,7 @@ public class TodoList: TodoListAPI {
         }
     }
 
-    public func count(withUserID: String?, oncompletion: (Int?, ErrorProtocol?) -> Void) {
+    public func count(withUserID: String?, oncompletion: @escaping (Int?, Error?) -> Void) {
 
         let userID = withUserID ?? defaultUsername
 
@@ -126,7 +126,7 @@ public class TodoList: TodoListAPI {
         }
     }
 
-    public func clear(withUserID: String?, oncompletion: (ErrorProtocol?) -> Void) {
+    public func clear(withUserID: String?, oncompletion: @escaping (Error?) -> Void) {
 
         let userID = withUserID ?? defaultUsername
 
@@ -182,7 +182,7 @@ public class TodoList: TodoListAPI {
     }
 
 
-    public func clearAll(oncompletion: (ErrorProtocol?) -> Void) {
+    public func clearAll(oncompletion: @escaping (Error?) -> Void) {
 
         connectRedis() {
             connectionError in
@@ -208,7 +208,7 @@ public class TodoList: TodoListAPI {
     }
 
 
-    public func get(withUserID: String?, oncompletion: ([TodoItem]?, ErrorProtocol?) -> Void) {
+    public func get(withUserID: String?, oncompletion: @escaping ([TodoItem]?, Error?) -> Void) {
 
         let userID = withUserID ?? defaultUsername
 
@@ -262,7 +262,7 @@ public class TodoList: TodoListAPI {
     }
 
     public func get(withUserID: String?, withDocumentID: String,
-                    oncompletion: (TodoItem?, ErrorProtocol?) -> Void ) {
+                    oncompletion: @escaping (TodoItem?, Error?) -> Void ) {
 
         let userID = withUserID ?? defaultUsername
         self.lookup(documentId: withDocumentID) {
@@ -287,7 +287,7 @@ public class TodoList: TodoListAPI {
 
     public func add(userID: String?, title: String, order: Int = 0,
                     completed: Bool = false,
-                    oncompletion: (TodoItem?, ErrorProtocol?) -> Void ) {
+                    oncompletion: @escaping (TodoItem?, Error?) -> Void ) {
 
         let userID = userID ?? defaultUsername
         connectRedis() {
@@ -346,7 +346,7 @@ public class TodoList: TodoListAPI {
     }
 
     public func update(documentID: String, userID: String?, title: String?, order: Int?,
-                       completed: Bool?, oncompletion: (TodoItem?, ErrorProtocol?) -> Void ) {
+                       completed: Bool?, oncompletion: @escaping (TodoItem?, Error?) -> Void ) {
 
         connectRedis() {
             connectionError in
@@ -390,7 +390,7 @@ public class TodoList: TodoListAPI {
         }
     }
 
-    public func delete(withUserID: String?, withDocumentID: String, oncompletion: (ErrorProtocol?) -> Void) {
+    public func delete(withUserID: String?, withDocumentID: String, oncompletion: @escaping (Error?) -> Void) {
 
         let userID = withUserID ?? defaultUsername
 
@@ -427,7 +427,7 @@ public class TodoList: TodoListAPI {
         }
     }
 
-    private func lookup(documentId: String, oncompletion: (TodoItem?, ErrorProtocol?) -> Void) {
+    private func lookup(documentId: String, oncompletion: (TodoItem?, Error?) -> Void) {
 
         connectRedis() {
             connectionError in
@@ -442,7 +442,7 @@ public class TodoList: TodoListAPI {
                 result, error in
 
 
-                guard let result = result where error == nil else {
+                guard let result = result , error == nil else {
                     Log.error("Could not parse")
                     oncompletion(nil, error)
                     return
