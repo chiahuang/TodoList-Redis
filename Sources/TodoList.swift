@@ -412,17 +412,7 @@ public class TodoList: TodoListAPI {
                     return
                 }
 
-                self.redis.del(userID) {
-                    result2, error2 in
-
-                    guard error2 == nil else {
-                        Log.error("Failed to delete the specific key")
-                        oncompletion(error2)
-                        return
-                    }
-
-                    oncompletion(nil)
-                }
+                oncompletion(nil)
             }
         }
     }
