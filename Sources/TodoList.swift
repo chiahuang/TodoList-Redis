@@ -24,7 +24,7 @@ let TODO = "todo"
 // Field names
 let TITLE = "title"
 let COMPLETED = "completed"
-let ORDER = "order"
+let RANK = "rank"
 let USERID = "userid"
 
 /// TodoList for Redis
@@ -285,7 +285,7 @@ public class TodoList: TodoListAPI {
     }
 
 
-    public func add(userID: String?, title: String, order: Int = 0,
+    public func add(userID: String?, title: String, rank: Int = 0,
                     completed: Bool = false,
                     oncompletion: @escaping (TodoItem?, Error?) -> Void ) {
 
@@ -315,7 +315,7 @@ public class TodoList: TodoListAPI {
                 }
                 
                 self.redis.hmset(String(incrResult), fieldValuePairs: (TITLE, title),
-                                 (ORDER, String(order)), (COMPLETED, String(completed)),
+                                 (RANK, String(rank)), (COMPLETED, String(completed)),
                                  (USERID, userID)) {
                                     result, error in
 
@@ -325,7 +325,7 @@ public class TodoList: TodoListAPI {
                                         return
                                     }
                                     
-                                    self.redis.zadd(userID, tuples: (order, String(incrResult))) {
+                                    self.redis.zadd(userID, tuples: (rank, String(incrResult))) {
                                         result2, error2 in
 
                                         guard result2 == 1 && error2 == nil else {
@@ -335,7 +335,7 @@ public class TodoList: TodoListAPI {
                                         }
                                         
                                         let newItem = TodoItem(documentID: String(incrResult),
-                                                               userID: userID, order: order,
+                                                               userID: userID, rank: rank,
                                                                title: title, completed: completed)
 
                                         oncompletion(newItem, nil)
@@ -345,7 +345,7 @@ public class TodoList: TodoListAPI {
         }
     }
 
-    public func update(documentID: String, userID: String?, title: String?, order: Int?,
+    public func update(documentID: String, userID: String?, title: String?, rank: Int?,
                        completed: Bool?, oncompletion: @escaping (TodoItem?, Error?) -> Void ) {
 
         connectRedis() {
@@ -363,8 +363,8 @@ public class TodoList: TodoListAPI {
                 fieldValuePairs.append((TITLE, title))
             }
 
-            if let order = order {
-                fieldValuePairs.append((ORDER, String(order)))
+            if let rank = rank {
+                fieldValuePairs.append((RANK, String(rank)))
             }
 
             if let completed = completed {
@@ -438,7 +438,7 @@ public class TodoList: TodoListAPI {
                 return
             }
 
-            self.redis.hmget(documentId, fields: TITLE, ORDER, COMPLETED, USERID) {
+            self.redis.hmget(documentId, fields: TITLE, RANK, COMPLETED, USERID) {
                 result, error in
 
 
@@ -462,13 +462,13 @@ public class TodoList: TodoListAPI {
 
                 let completed = result[2]?.asString == "true" ? true : false
 
-                guard let order = result[1]?.asInteger else {
-                    Log.error("Could not parse order as Integer")
+                guard let rank = result[1]?.asInteger else {
+                    Log.error("Could not parse rank as Integer")
                     oncompletion(nil, TodoCollectionError.ParseError)
                     return
                 }
 
-                oncompletion(TodoItem(documentID: documentId, userID: userID, order: order, title: title, completed: completed), nil)
+                oncompletion(TodoItem(documentID: documentId, userID: userID, rank: rank, title: title, completed: completed), nil)
 
             }
         }
